@@ -1,0 +1,19 @@
+.upload-container{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px dashed #d9d9d9;
+    background: #fafafa;
+}
+.upload-container:hover{
+    border-color: #40a9ff;
+}
+.upload-container span{
+    font-size:60px;
+}
+
+.upload-container video,img{
+    height:100%;
+}

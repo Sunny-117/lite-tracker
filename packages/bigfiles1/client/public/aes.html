@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+//在浏览器端如何加密
+async function encryptChunk(chunk,key){
+    //iv是中密过程中一个随机值，用于确保就是使用相同的密钥对相同的数据进行加密，每次加密的结果也不一样
+    //iv是一个12个字节的随机数组为初始化的向量
+    const algorithm= {
+        name:'AES-GCM',
+        iv:window.crypto.getRandomValues(new Uint8Array(12))
+    }
+    const encryptedChunk =  await window.subtle.encrypt(algorithm,key,chunk);
+    return {encryptedChunk,iv:algorithm.iv};
+}
+async function generateKey(){
+    const key= await window.crypto.subtle.generateKey({
+        name:'AES_GCM',
+        length:256
+    },true,['encrypt','decrypt'])
+    return key;
+}
+const key = generateKey();
+
+const {encryptedChunk,iv} = await encryptChunk(chunk,key);
+
+</script>
+</body>
+</html>

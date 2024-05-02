@@ -1,35 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>聊天机器人</title>
-    <link rel="stylesheet" href="./index.css">
-</head>
+  <style>
+    .ball {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: #f00;
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      animation: move 4s linear infinite;
+    }
 
-<body>
-    <div class="box">
-        <h4 class="header">
-            AI客服
-        </h4>
-        <div class="content">
-            <div class="mine clearfix">
-                <div class="avator"></div>
-                <div class="text">今天你吃了吗？</div>
-            </div>
-            <div class="robot clearfix">
-                <div class="avator"></div>
-                <div class="text">吃饱了！</div>
-            </div>
-        </div>
-        <div class="send-box">
-            <input type="text" id="send-inp">
-            <button id="send-btn">发送</button>
-        </div>
-    </div>
-    <script src="./ajax.js"></script>
-    <script src="./index.js"></script>
-</body>
-
+    @keyframes move {
+      0% {
+        left: 0;
+      }
+      50% {
+        left: calc(100% - 100px);
+      }
+      100% {
+        left: 0;
+      }
+    }
+  </style>
+  <body>
+    <div class="ball"></div>
+    <input type="file" />
+    <img id="showImg" alt="" />
+    <video id="showVideo" controls style="display: none"></video>
+  </body>
+  <script type="module" src="./main.js"></script>
 </html>
