@@ -1,4 +1,4 @@
-# 前端服务监控与手写监控SDK
+# 🍻 前端服务监控原理与手写开源监控框架SDK
 
 # 前端服务监控概述
 
@@ -8,7 +8,7 @@
 
 下图是一个完整的前端监控平台需要处理和解决的问题：
 
-![monitor](./assets/monitor_FE.png)
+![monitor](https://raw.githubusercontent.com/Sunny-117/lite-tracker/main/assets/monitor_FE.png)
 
 这么大一张图，估计大家看着也脑子发晕，而且这张图很多地方由于内容太多，还是省略之后的。
 
@@ -28,25 +28,25 @@
 
 ## 阿里ARMS基本使用
 
-![image-20230711103740672](./assets/image-20230711103740672.png)
+![image-20230711103740672](https://raw.githubusercontent.com/Sunny-117/lite-tracker/main/assets/image-20230711103740672.png)
 
-![image-20230711103823018](./assets/image-20230711103823018.png)
+![image-20230711103823018](https://raw.githubusercontent.com/Sunny-117/lite-tracker/main/assets/image-20230711103823018.png)
 
-![image-20230711104021544](./assets/image-20230711104021544.png)
+![image-20230711104021544](https://raw.githubusercontent.com/Sunny-117/lite-tracker/main/assets/image-20230711104021544.png)
 
-![image-20230711104110952](./assets/image-20230711104110952.png)
+![image-20230711104110952](https://raw.githubusercontent.com/Sunny-117/lite-tracker/main/assets/image-20230711104110952.png)
 
-![image-20230711104148048](./assets/image-20230711104148048.png)
+![image-20230711104148048](https://raw.githubusercontent.com/Sunny-117/lite-tracker/main/assets/image-20230711104148048.png)
 
 ## Sentry
 
-![image-20230711111313865](./assets/image-20230711111313865.png)
+![image-20230711111313865](https://raw.githubusercontent.com/Sunny-117/lite-tracker/main/assets/image-20230711111313865.png)
 
-![image-20230711111633973](./assets/image-20230711111633973.png)
+![image-20230711111633973](https://raw.githubusercontent.com/Sunny-117/lite-tracker/main/assets/image-20230711111633973.png)
 
-![image-20230711111846980](./assets/image-20230711111846980.png)
+![image-20230711111846980](https://raw.githubusercontent.com/Sunny-117/lite-tracker/main/assets/image-20230711111846980.png)
 
-![image-20230711112002468](./assets/image-20230711112002468.png)
+![image-20230711112002468](https://raw.githubusercontent.com/Sunny-117/lite-tracker/main/assets/image-20230711112002468.png)
 
 ```javascript
 //安装
@@ -75,7 +75,7 @@ const root = createRoot(container);
 root.render(<App />)
 ```
 
-![image-20230711114755200](./assets/image-20230711114755200.png)
+![image-20230711114755200](https://raw.githubusercontent.com/Sunny-117/lite-tracker/main/assets/image-20230711114755200.png)
 
 ## 一些名称的解释
 
@@ -797,7 +797,7 @@ function reportWithXHR(reportUrl,reportData) {
   - 合成
 - requestIdleCallback回调（空闲时间）
 
-![img](./assets/life-of-a-frame.png)
+![img](https://raw.githubusercontent.com/Sunny-117/lite-tracker/main/assets/life-of-a-frame.png)
 
 我们上传数据，也可以利用这一点，更好的处理上传时机
 
@@ -911,11 +911,11 @@ oImage.src = `${url}?logs=${data}`;
 
 在高版本（ >= 60）的 Chrome 浏览器中，**Lighthouse** 已经直接集成到了调试工具 **DevTools**中了，因此不需要进行任何安装或下载。
 
-![image-20230709153707730](./assets/image-20230709153707730.png)
+![image-20230709153707730](https://raw.githubusercontent.com/Sunny-117/lite-tracker/main/assets/image-20230709153707730.png)
 
 **Lighthouse 能够生成一份该网站的报告，比如下图：**
 
-![image-20230712141213034](./assets/image-20230712141213034.png)
+![image-20230712141213034](https://raw.githubusercontent.com/Sunny-117/lite-tracker/main/assets/image-20230712141213034.png)
 
 **这里重点关注`Performance性能评分`**
 
@@ -927,7 +927,7 @@ Lighthouse 会针对当前网站，给出一些`Opportunities`优化建议
 
 **Opportunities 指的是优化机会，它提供了详细的建议和文档，来解释低分的原因，帮助我们具体进行实现和改进**
 
-![image-20230712141429268](./assets/image-20230712141429268.png)
+![image-20230712141429268](https://raw.githubusercontent.com/Sunny-117/lite-tracker/main/assets/image-20230712141429268.png)
 
 **Opportunities 给出优化建议列表**
 
@@ -944,7 +944,7 @@ Lighthouse 会针对当前网站，给出一些`Opportunities`优化建议
 
 **`Diagnostics` 指的是现在存在的问题，为进一步改善性能的验证和调整给出了指导**
 
-![image-20230712141714354](./assets/image-20230712141714354.png)
+![image-20230712141714354](https://raw.githubusercontent.com/Sunny-117/lite-tracker/main/assets/image-20230712141714354.png)
 
 **Diagnostics 诊断问题列表**
 
@@ -963,7 +963,7 @@ Lighthouse 会针对当前网站，给出一些`Opportunities`优化建议
 
 打开 Chrome 浏览器控制台，选择`Performance`选项，点击左侧`reload图标`
 
-![image-20230712164345160](./assets/image-20230712164345160.png)
+![image-20230712164345160](https://raw.githubusercontent.com/Sunny-117/lite-tracker/main/assets/image-20230712164345160.png)
 
 ## W3C标准化
 
@@ -971,7 +971,7 @@ Lighthouse 会针对当前网站，给出一些`Opportunities`优化建议
 
 为了帮助开发者更好地衡量和改进前端页面性能，`W3C性能小组`引入了 `Navigation Timing API` ，实现了自动、精准的页面性能打点；开发者可以通过 `window.performance` 属性获取。
 
-![Navigation Timing attributes](./assets/timestamp-diagram.svg)
+![Navigation Timing attributes](https://raw.githubusercontent.com/Sunny-117/lite-tracker/main/assets/timestamp-diagram.svg)
 
 `图中指标的解读`可以在 [developer.mozilla.org/zh-CN/docs/…](https://developer.mozilla.org/zh-CN/docs/Web/API/PerformanceTiming) 中查看
 
@@ -1091,13 +1091,13 @@ w3c制定了一大堆指标，不过google发布了`web-vitals` ，它是一个�
 
 首次内容绘制 (FCP) 指标测量页面从开始加载到页面内容的任何部分在屏幕上完成渲染的时间。对于该指标，"内容"指的是文本、图像（包括背景图像）、`<svg>`元素或非白色的`<canvas>`元素。
 
-![FCP](./assets/image-20230709150748293.png)
+![FCP](https://raw.githubusercontent.com/Sunny-117/lite-tracker/main/assets/image-20230709150748293.png)
 
 在上方的加载时间轴中，FCP 发生在第二帧，因为那是首批文本和图像元素在屏幕上完成渲染的时间点。
 
 您会注意到，虽然部分内容已完成渲染，但并非所有内容都已经完成渲染。这是*首次*内容绘制 (FCP) 与*Largest Contentful Paint 最大内容绘制 (LCP)*（旨在测量页面的主要内容何时完成加载）之间的重要区别。
 
-![image-20230709150858082](./assets/image-20230709150858082.png)
+![image-20230709150858082](https://raw.githubusercontent.com/Sunny-117/lite-tracker/main/assets/image-20230709150858082.png)
 
 #### 怎样算是良好的 FCP 分数？
 
@@ -1107,7 +1107,7 @@ w3c制定了一大堆指标，不过google发布了`web-vitals` ，它是一个�
 
 最大内容绘制 (LCP) 指标会根据页面[首次开始加载](https://w3c.github.io/hr-time/#timeorigin-attribute)的时间点来报告可视区域内可见的最大[图像或文本块](https://web.dev/lcp/#what-elements-are-considered)完成渲染的相对时间。
 
-![image-20230709155541607](./assets/image-20230709155541607.png)
+![image-20230709155541607](https://raw.githubusercontent.com/Sunny-117/lite-tracker/main/assets/image-20230709155541607.png)
 
 #### 哪些元素在考量范围内
 
@@ -1119,13 +1119,13 @@ w3c制定了一大堆指标，不过google发布了`web-vitals` ，它是一个�
 - 通过[`url()`](https://developer.mozilla.org/docs/Web/CSS/url())函数（而非使用[CSS 渐变](https://developer.mozilla.org/docs/Web/CSS/CSS_Images/Using_CSS_gradients)）加载的带有背景图像的元素
 - 包含文本节点或其他行内级文本元素子元素的[块级元素](https://developer.mozilla.org/docs/Web/HTML/Block-level_elements)。
 
-![image-20230709154609267](./assets/image-20230709154609267.png)
+![image-20230709154609267](https://raw.githubusercontent.com/Sunny-117/lite-tracker/main/assets/image-20230709154609267.png)
 
 在上方的两个时间轴中，最大元素随内容加载而变化。在第一个示例中，新内容被添加进 DOM，并因此使最大元素发生了改变。在第二个示例中，由于布局的改变，先前的最大内容从可视区域中被移除。
 
 虽然延迟加载的内容通常比页面上已有的内容更大，但实际情况并非一定如此。接下来的两个示例显示了在页面完全加载之前出现的最大内容绘制。
 
-![image-20230709155312616](./assets/image-20230709155312616.png)
+![image-20230709155312616](https://raw.githubusercontent.com/Sunny-117/lite-tracker/main/assets/image-20230709155312616.png)
 
 在第一个示例中，Instagram 标志加载得相对较早，即使其他内容随后陆续显示，但标志始终是最大元素。在 Google 搜索结果页面示例中，最大元素是一段文本，这段文本在所有图像或标志完成加载之前就显示了出来。由于所有单个图像都小于这段文字，因此这段文字在整个加载过程中始终是最大元素。
 
@@ -1135,13 +1135,13 @@ CLS 测量整个页面生命周期内发生的所有[意外](https://web.dev/cls
 
 您是否曾经历过在网上阅读一篇文章，结果页面上的某些内容突然发生改变？文本在毫无预警的情况下移位，导致您找不到先前阅读的位置。或者更糟糕的情况：您正要点击一个链接或一个按钮，但在您手指落下的瞬间，诶？链接移位了，结果您点到了别的东西！
 
-![2023-07-09 16.26.44](./assets/2023-07-09 16.26.44.gif)
+![2023-07-09 16.26.44](https://raw.githubusercontent.com/Sunny-117/lite-tracker/main/assets/gg.gif)
 
 #### 怎样算是良好的 CLS 分数？
 
 为了提供良好的用户体验，网站应该努力将 CLS 分数控制在**0.1** 或以下。为了确保您能够在大部分用户的访问期间达成建议目标值，一个良好的测量阈值为页面加载的**第 75 个百分位数**，且该阈值同时适用于移动和桌面设备。
 
-![image-20230709163331510](./assets/image-20230709163331510.png)
+![image-20230709163331510](https://raw.githubusercontent.com/Sunny-117/lite-tracker/main/assets/image-20230709163331510.png)
 
 #### 影响分数
 
@@ -1149,7 +1149,7 @@ CLS 测量整个页面生命周期内发生的所有[意外](https://web.dev/cls
 
 前一帧*和*当前帧的所有*不稳定元素*的可见区域集合（占总可视区域的部分）就是当前帧的*影响分数*。
 
-![image-20230709163426922](./assets/image-20230709163426922.png)
+![image-20230709163426922](https://raw.githubusercontent.com/Sunny-117/lite-tracker/main/assets/image-20230709163426922.png)
 
 在上图中，有一个元素在一帧中占据了一半的可视区域。接着，在下一帧中，元素下移了可视区域高度的 25%。红色虚线矩形框表示两帧中元素的可见区域集合，在本示例中，该集合占总可视区域的 75%，因此其*影响分数*为`0.75` 。
 
@@ -1157,7 +1157,7 @@ CLS 测量整个页面生命周期内发生的所有[意外](https://web.dev/cls
 
 FID 测量从用户第一次与页面交互（例如当他们单击链接、点按按钮或使用由 JavaScript 驱动的自定义控件）直到浏览器对交互作出响应，并实际能够开始处理事件处理程序所经过的时间。
 
-![image-20230709160917963](./assets/image-20230709160917963.png)
+![image-20230709160917963](https://raw.githubusercontent.com/Sunny-117/lite-tracker/main/assets/image-20230709160917963.png)
 
 #### 如果交互没有事件侦听器怎么办？ 
 
@@ -1179,7 +1179,7 @@ FID 测量接收到输入事件的时间点与主线程下一次空闲的时间�
 
 ## 以技术为中心的性能指标
 
-![Navigation Timing attributes](./assets/timestamp-diagram.svg)
+![Navigation Timing attributes](https://raw.githubusercontent.com/Sunny-117/lite-tracker/main/assets/timestamp-diagram.svg)
 
 什么叫以技术为中心的性能指标呢？
 
