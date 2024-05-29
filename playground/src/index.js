@@ -1,5 +1,5 @@
 console.log('hello')
-import monitor from '@monitor/core'
+import monitor from 'lite-tracker'
 
 window.onload = function () {
     monitor.init({});

@@ -1,5 +1,5 @@
 {
-  "name": "@monitor/playground",
+  "name": "playground",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@monitor/core": "workspace:^0.0.1"
+    "lite-tracker": "link:.."
   },
   "devDependencies": {
     "vite": "^5.2.12"
