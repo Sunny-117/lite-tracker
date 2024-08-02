@@ -1,6 +1,6 @@
 {
   "name": "lite-tracker",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "monitor",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -8,11 +8,18 @@
   "publishConfig": {
     "access": "public"
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "rollup -c",
-    "dev": "rollup -c -w"
+    "dev": "rollup -c -w",
+    "release": "bumpp && pnpm publish",
+    "prepublishOnly": "pnpm run build"
   },
-  "keywords": ["monitor"],
+  "keywords": [
+    "monitor"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
@@ -20,6 +27,7 @@
     "@rollup/plugin-babel": "^6.0.3",
     "@rollup/plugin-commonjs": "^25.0.2",
     "@rollup/plugin-node-resolve": "^15.1.0",
+    "bumpp": "^9.4.2",
     "rollup": "^3.26.2"
   },
   "dependencies": {
