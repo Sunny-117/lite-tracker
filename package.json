@@ -1,6 +1,6 @@
 {
   "name": "lite-tracker",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "description": "monitor",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
