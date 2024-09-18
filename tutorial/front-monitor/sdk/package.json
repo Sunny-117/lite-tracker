@@ -1,0 +1,39 @@
+{
+  "name": "fee-sdk",
+  "version": "1.0.40",
+  "description": "init",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "webpack",
+    "prepublish": "npm run build",
+    "dev": "webpack-dev-server"
+  },
+  "keywords": [],
+  "author": "lianjia-fe",
+  "license": "ISC",
+  "dependencies": {
+    "lodash-es": "^4.17.11"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.1.5",
+    "@babel/core": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
+    "babel-loader": "^8.0.4",
+    "chalk": "^2.4.1",
+    "html-webpack-plugin": "^4.3.0",
+    "ora": "^3.0.0",
+    "shelljs": "^0.8.3",
+    "standard": "^12.0.1",
+    "uglifyjs-webpack-plugin": "^2.0.1",
+    "webpack": "^4.26.0",
+    "webpack-bundle-analyzer": "^3.0.3",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^4.1.4"
+  },
+  "standard": {
+    "ignore": [
+      "/dist/"
+    ]
+  }
+}
