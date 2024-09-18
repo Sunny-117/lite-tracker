@@ -54,23 +54,9 @@ https://github.com/clouDr-f2e/monitor
 - 可视化展示 将数据按各种维度进行展示
 - 监控报警 发现问题后按一定的条件触发报警
 
-![monitorplatform](https://zwhid.oss-cn-shenzhen.aliyuncs.com/blog/19-17-39-YyZeSO.jpg)
-
 
 [code](https://github.com/zwhid/example/tree/master/my-monitor)
 
-### 常见埋点方案
-
-![](assets/2023-01-03-19-18-12.png)
-![](assets/2023-01-03-20-15-54.png)
-https://sls.console.aliyun.com/lognext/open
-![](assets/2023-01-03-20-16-41.png)
-![](assets/2023-01-03-20-17-04.png)
-![](assets/2023-01-03-20-36-43.png)
-![](assets/2023-01-03-20-37-10.png)
-![](assets/2023-01-03-20-17-45.png)
-![](assets/2023-01-03-20-19-21.png)
-![](assets/2023-01-03-20-42-29.png)
 
 # 2.监控 js 和资源异常错误
 
@@ -656,12 +642,6 @@ export function timing() {
 
 ---
 
-<img src="/Users/study/Desktop/浏览器渲染.jpg" alt="浏览器渲染" style="zoom:50%;" />
-
-<img src="/Users/study/Desktop/渲染参数.jpg" alt="渲染参数" style="zoom:50%;" />
-
-![](assets/2023-01-04-16-00-58.png)
-
 | 字段                       | 含义                                                                                                                                                                                      |
 | :------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | navigationStart            | 初始化页面，在同一个浏览器上下文中前一个页面 unload 的时间戳，如果没有前一个页面的 unload,则与 fetchStart 值相等                                                                          |
@@ -770,13 +750,3 @@ export function pv() {
 
 # 四、借助第三方库
 sentry-javascript
-
-
-
-
-
-# 第2章前端监控项目
-
-去百度网盘看完剩余课程
-
-![](assets/2023-01-18-08-09-39.png)
