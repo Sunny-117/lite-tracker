@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>前端监控SDK</title>
+</head>
+
+<body>
+  <div id="container">
+    <div class="content">
+      <button id="errBtn" onclick="errorClick()">errorClick</button>
+      <button id="promiseBtn" onclick="promiseClick()">promiseClick</button>
+    </div>
+  </div>
+  <script>
+    function sendSuccess() {
+      let xhr = new XMLHttpRequest();
+      xhr.open('GET', '/success', true);
+      xhr.responseType = 'json';
+      xhr.onload = function () {
+        console.log(xhr.response);
+      }
+      xhr.send();
+    }
+
+    function sendError() {
+      let xhr = new XMLHttpRequest();
+      xhr.open('POST', '/error', true);
+      xhr.responseType = 'json';
+      xhr.onload = function () {
+        console.log(xhr.response);
+      }
+      xhr.onerror = function (err) {
+        console.log(err);
+      }
+      xhr.send("name=zwh");
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>前端监控SDK</title>
+</head>
+
+<body>
+  <div id="container">
+    <div class="content">
+      <button id="errBtn" onclick="errorClick()">errorClick</button>
+      <button id="promiseBtn" onclick="promiseClick()">promiseClick</button>
+    </div>
+  </div>
+  <script>
+    function errorClick() {
+      window.someVar.error = 'error'
+    }
+
+    function promiseClick() {
+      new Promise(function (resolve, reject) {
+        reject('出错了')
+      })
+    }
+  </script>
+  <!-- 资源异常测试 -->
+  <script src="one.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>前端监控SDK</title>
+
+    <!-- Import SDK -->
+    <script src='https://js.sentry-cdn.com/58ab0f96b3804a59b4e4ce29694f0043.min.js' crossorigin="anonymous"></script>
+    <!-- Configure SDK -->
+    <script>
+        Sentry.init({
+        dsn: 'https://58ab0f96b3804a59b4e4ce29694f0043@o4505360995909632.ingest.sentry.io/4505361018454016'
+        });
+    </script>
+</head>
+<body>
+    <div id="container">
+        <div class="content">
+            <input type="button" value="点击抛出错误" onclick="errorClick()" />
+            <input type="button" value="点击抛出Promise错误" onclick="promiseErrorClick()">
+            <input id="successBtn" type="button" value="ajax请求成功" onclick="sendSuccess()">
+            <input id="errorBtn" type="button" value="ajax失败成功" onclick="sendError()">
+        </div>
+        <!-- <div class="text" style="width: 100vw;height: 100vh;">Non white screen</div> --> 
+    </div>
+
+    <script>
+        function errorClick() {
+            window.someVar.error = 'error'
+        }
+        function promiseErrorClick() {
+            new Promise(function(resolve, reject) {
+                window.someVar.error = 'error'
+                // reject('reject error!')
+            })
+        }
+        function sendSuccess() {
+            let xhr = new XMLHttpRequest;
+            xhr.open('GET', '/success', true)
+            xhr.responseType = "json"
+            xhr.onload = function() {
+                console.log(xhr)
+            }
+            xhr.send()
+        }
+        function sendError() {
+            let xhr = new XMLHttpRequest;
+            xhr.open('POST', '/error', true)
+            xhr.responseType = "json"
+            xhr.onload = function() {
+                console.log(xhr.response)
+            }
+            xhr.onerror = function (error) {
+                console.log(error)
+            }
+            xhr.send()
+        }
+
+        // DOM解析完成，即使依赖的资源没有加载完成，也会触发这个事件
+        document.addEventListener('DOMContentLoaded', () => {
+            let start = Date.now();
+            while ((Date.now() - start) < 1000) {}
+        })
+
+        // 创建最有意义的元素
+        setTimeout(() => {
+            const h1 = document.createElement('h1');
+            const content = document.getElementsByClassName('content')[0]
+            h1.innerHTML = "最有意义的元素"
+            h1.setAttribute('elementtiming', 'meaningful') // 创建页面最有意义的元素
+            content.appendChild(h1)
+        }, 1000)
+    </script>
+    <!-- 资源加载报错，不存在someError.js -->
+    <!-- webpack打包后的脚本是defer，这里这个脚本也必须加上defer，否则不能保证该资源请求错误被打包后的脚本捕获到 -->
+    <!-- <script defer src="/someError.js"></script> -->
+</body>
+</html>

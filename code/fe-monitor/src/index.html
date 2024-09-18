@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>前端监控SDK</title>
+</head>
+
+<body>
+  <div id="container">
+    <div class="content">
+
+    </div>
+  </div>
+  <script>
+    setTimeout(() => {
+      let content = document.getElementsByClassName('content')[0];
+      let h1 = document.createElement('h1');
+      h1.innerHTML = '我是这个页面最有意义的内容';
+      h1.setAttribute('elementtiming', 'meaningful');
+      content.appendChild(h1);
+    }, 2000);
+  </script>
+</body>
+
+</html>
