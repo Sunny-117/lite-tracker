@@ -6,12 +6,16 @@ import {
   Query,
   HttpCode,
   HttpStatus,
+  Logger,
+  BadRequestException,
 } from '@nestjs/common';
 import { MonitorService } from './monitor.service';
 import { ReportDto } from '../../dto/report.dto';
 
 @Controller()
 export class MonitorController {
+  private readonly logger = new Logger(MonitorController.name);
+
   constructor(private readonly monitorService: MonitorService) {}
 
   @Get('/api/test')
@@ -54,9 +58,14 @@ export class MonitorController {
 
   @Post('/report/actions')
   @HttpCode(HttpStatus.OK)
-  async reportActions(@Body() body: any) {
-    const reportDto: ReportDto =
-      typeof body === 'string' ? JSON.parse(body) : body;
+  async reportActions(@Body() reportDto: ReportDto) {
+    this.logger.log(`Received report: ${JSON.stringify(reportDto)}`);
+    
+    if (!reportDto || !reportDto.type || !reportDto.data) {
+      this.logger.error(`Invalid report data: ${JSON.stringify(reportDto)}`);
+      throw new BadRequestException('Missing required fields: type and data are required');
+    }
+    
     return this.monitorService.saveReportData(reportDto);
   }
 }

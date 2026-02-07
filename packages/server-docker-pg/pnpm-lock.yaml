@@ -63,6 +63,9 @@ importers:
       '@types/supertest':
         specifier: ^6.0.2
         version: 6.0.3
+      express:
+        specifier: ^5.2.1
+        version: 5.2.1
       globals:
         specifier: ^16.0.0
         version: 16.5.0
