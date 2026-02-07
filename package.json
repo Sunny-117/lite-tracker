@@ -12,8 +12,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "rollup -c",
-    "dev": "rollup -c -w",
+    "build": "rolldown -c rolldown.config.js",
+    "dev": "rolldown -c rolldown.config.js -w",
     "release": "bumpp && pnpm publish",
     "prepublishOnly": "pnpm run build"
   },
@@ -23,15 +23,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/preset-env": "^7.22.9",
-    "@rollup/plugin-babel": "^6.0.3",
-    "@rollup/plugin-commonjs": "^25.0.2",
-    "@rollup/plugin-node-resolve": "^15.1.0",
     "bumpp": "^9.4.2",
-    "rollup": "^3.26.2"
+    "rolldown": "1.0.0-rc.3"
   },
   "dependencies": {
-    "@babel/core": "^7.24.6",
     "web-vitals": "^3.4.0"
   }
 }

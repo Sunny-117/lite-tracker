@@ -1,5 +1,9 @@
 import { onCLS, onFCP, onFID, onLCP, onTTFB } from "web-vitals";
 import { lazyReportCache } from "../report";
+import longTask from "./longTask";
+import observerLCP from "./observerLCP";
+import observerPaint from "./observerPaint";
+import observerResource from "./observerResource";
 
 export default function performance() {
   /*
@@ -75,11 +79,17 @@ export default function performance() {
   onLCP(sendToAnalytics);
   onFCP(sendToAnalytics);
   onTTFB(sendToAnalytics);
+
+  // 额外的性能监控
+  // longTask(); // 长任务监控
+  // observerLCP(); // LCP 详细监控
+  // observerPaint(); // FP/FCP 监控
+  // observerResource(); // 资源加载监控
 }
 
 function sendToAnalytics(metric) {
   const data = {
-    name: metric.name,
+    subType: metric.name,
     value: metric.value,
     rating: metric.rating,
     delta: metric.delta

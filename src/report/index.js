@@ -44,19 +44,19 @@ export function report(type, data, isImmediate = false) {
   
   //立即上传
   if (isImmediate) { 
-    sendBeacon(config.reportUrl, reportData);
+    sendReport(config.reportUrl, reportData);
     return;
   }
   
   // 浏览器空闲时间进行上报
   if (window.requestIdleCallback) {
     window.requestIdleCallback(() => {
-      sendBeacon(config.reportUrl, reportData);
+      sendReport(config.reportUrl, reportData);
     }, { timeout: 3000 });
   }
   else { 
     setTimeout(() => { 
-      sendBeacon(config.reportUrl, reportData);
+      sendReport(config.reportUrl, reportData);
     })
   }
   
@@ -68,21 +68,60 @@ export function lazyReportCache(type, data, timeout = 500) {
   //把数据加入到map缓存中
   addCache(type, data);
   
+  // 检查缓存大小，超过阈值立即上报
+  const dataMap = getCache();
+  let totalSize = 0;
+  for (const [, items] of dataMap) {
+    totalSize += items.length;
+  }
+
+  if (totalSize >= config.maxCacheSize) {
+    clearTimeout(timer);
+    flushCache();
+    return;
+  }
+  
   clearTimeout(timer);
   timer = setTimeout(() => { 
-    //获取缓存中的数据
-    const dataMap = getCache();
+    flushCache();
+  }, timeout)
+}
 
-    if (dataMap.size) { 
-      for (const [type, data] of dataMap) { 
-        console.log(type, data); //error [xxx,xx,xx], api [xx,xx,xxx]
-        report(type, data);
-      }
+// 刷新缓存，上报所有数据
+function flushCache() {
+  const dataMap = getCache();
 
-      clearCache();
+  if (dataMap.size) { 
+    for (const [type, data] of dataMap) { 
+      report(type, data);
     }
+    clearCache();
+  }
+}
 
-  },timeout)
+// 根据配置选择上报方式
+function sendReport(reportUrl, reportData) {
+  console.log('=== sendReport ===', JSON.parse(reportData))
+  const method = config.reportMethod || 'beacon';
+
+  switch (method) {
+    case 'image':
+      reportWithImage(reportUrl, reportData);
+      break;
+    case 'xhr':
+      reportWithXHR(reportUrl, reportData);
+      break;
+    case 'beacon':
+    default:
+      sendBeacon(reportUrl, reportData);
+      break;
+  }
+}
+
+// 图片方式上报（适用于跨域场景，但有长度限制）
+function reportWithImage(reportUrl, reportData) {
+  const img = new Image();
+  img.src = `${reportUrl}?data=${encodeURIComponent(reportData)}`;
 }
 
 
@@ -104,3 +143,8 @@ function reportWithXHR(reportUrl, reportData) {
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.send(reportData);
 }
+
+// 页面卸载时强制上报所有缓存数据
+window.addEventListener('beforeunload', () => {
+  flushCache();
+});
