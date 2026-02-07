@@ -12,8 +12,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "rolldown -c rolldown.config.js",
-    "dev": "rolldown -c rolldown.config.js -w",
+    "build": "rolldown -c rolldown.config.ts",
+    "dev": "rolldown -c rolldown.config.ts -w",
     "release": "bumpp && pnpm publish",
     "prepublishOnly": "pnpm run build"
   },
