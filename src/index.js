@@ -7,7 +7,7 @@ import api from "./api";
 
 const monitor = {
   init(options = {}) {
-    console.log("init");
+    console.log("==== init SDK ====");
     setConfig(options); //配置全局参数
     error(); //错误监听处理
     performance(); //性能监听处理

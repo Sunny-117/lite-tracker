@@ -39,9 +39,9 @@ export function onVueRouter() {
     if (!from.name) return next();
     
     const stayTime = Date.now() - window.pageViewStartTime;
-    console.log(`页面停留时间 ${from.name}: ${stayTime}ms`);
-    console.log(to);
-    console.log(from);
+    // console.log(`页面停留时间 ${from.name}: ${stayTime}ms`);
+    // console.log(to);
+    // console.log(from);
 
     window.pageViewStartTime = Date.now();
 
@@ -64,7 +64,7 @@ export function pageChange() {
 
   window.addEventListener('popstate', () => { 
     const to = window.location.href;
-    console.log(to, from);
+    // console.log(to, from);
     lazyReportCache('behavior', {
       subType: 'pageChange',
       from,

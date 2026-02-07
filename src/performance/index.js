@@ -78,7 +78,6 @@ export default function performance() {
 }
 
 function sendToAnalytics(metric) {
-  console.log(metric);
   const data = {
     name: metric.name,
     value: metric.value,

@@ -64,7 +64,7 @@ export function report(type, data, isImmediate = false) {
 
 let timer = null;
 //延迟上传,一定时间之后再进行上传
-export function lazyReportCache(type, data, timeout = 3000) { 
+export function lazyReportCache(type, data, timeout = 500) { 
   //把数据加入到map缓存中
   addCache(type, data);
   

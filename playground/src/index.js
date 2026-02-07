@@ -1,4 +1,4 @@
-console.log('hello')
+console.log('✅ playground setup')
 import monitor from 'lite-tracker'
 
 window.onload = function () {
