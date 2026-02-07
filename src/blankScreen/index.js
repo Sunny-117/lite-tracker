@@ -3,6 +3,7 @@ import onload from "../util/onload";
 import getSelector from "../util/getSelector";
 
 /**
+ * @docs https://juejin.cn/post/7467228325716213814
  * 白屏检测方法：关键点采样检测法
  * 原理：在页面有元素的方位选取点进行元素检测，这里采用以中心为基点的十字轴采样18个点，
  * 检测每个点对应的元素是否是原始的标签元素，如果是则认为该点是空白点，空白点达到阈值则发送白屏监控日志

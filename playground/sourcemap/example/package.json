@@ -4,7 +4,7 @@
   "description": "noerror-example",
   "main": "server.js",
   "scripts": {
-    "dist": "webpack"
+    "build": "webpack"
   },
   "author": "joeyguo",
   "license": "MIT",

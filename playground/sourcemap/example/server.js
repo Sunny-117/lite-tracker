@@ -7,8 +7,8 @@ var app = new koa();
 
 app.use(staticServer(__dirname));
 
-app.listen(8066, function() {
-  console.log('webserver: listening on port ' + 8066);
+app.listen(8061, function() {
+  console.log('webserver: listening on port ' + 8061);
 });
 
 // ------ cdn  ----- //
@@ -26,6 +26,6 @@ cdn.use(function *(next){
 
 cdn.use(staticServer(__dirname));
 
-cdn.listen(8077, function() {
-  console.log('cdn: listening on port ' + 8077);
+cdn.listen(8062, function() {
+  console.log('cdn: listening on port ' + 8062);
 });
